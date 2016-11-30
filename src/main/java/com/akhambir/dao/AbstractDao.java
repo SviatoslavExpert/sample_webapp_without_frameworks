@@ -1,28 +1,12 @@
 package com.akhambir.dao;
 
-import com.akhambir.dao.interfaces.GenericDao;
-import com.akhambir.util.FakeConnection;
+import java.sql.Connection;
 
-public class AbstractDao<T> implements GenericDao<T> {
-    private final FakeConnection fakeConnection;
+public abstract class AbstractDao<T> implements GenericDao<T> {
 
-    public AbstractDao(FakeConnection fakeConnection) {
-        this.fakeConnection = fakeConnection;
-    }
+  protected final Connection connection;
 
-    public T create(T t) {
-        return null;
-    }
-
-    public T read(T t) {
-        return null;
-    }
-
-    public boolean update(T t) {
-        return false;
-    }
-
-    public T delete(T t) {
-        return null;
-    }
+  protected AbstractDao(Connection connection) {
+    this.connection = connection;
+  }
 }

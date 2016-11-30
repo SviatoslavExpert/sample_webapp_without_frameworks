@@ -1,48 +1,39 @@
 package com.akhambir.model;
 
 public class User {
-    private String userName;
-    private String password;
-    private String email;
-    private String token;
+  private Integer id;
+  private String userName;
+  private String password;
+  private String token;
 
-    public User(String userName, String password, String email, String token) {
-        this.userName = userName;
-        this.password = password;
-        this.email = email;
-        this.token = token;
-    }
+  public User(Integer id, String userName, String password, String token) {
+    this.id = id;
+    this.userName = userName;
+    this.password = password;
+    this.token = token;
+  }
 
-    public String getUserName() {
+  public static User from(String userName, String password, String token) {
+    return new User(null, userName, password, null);
+  }
 
-        return userName;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+  public String getUserName() {
+    return userName;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public String getPassword() {
+    return password;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public String getToken() {
+    return token;
+  }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
+  public static User from(int id, String username) {
+    return new User(id, username, null, null);
+  }
 }
